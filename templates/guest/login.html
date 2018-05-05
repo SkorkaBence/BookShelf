@@ -1,0 +1,23 @@
+{extends base.html}
+
+{block content}
+    <div class="background library"></div>
+    <div class="background overlay"></div>
+    <div class="screencenter noselect">
+        <h1>Bejelentkezés</h1>
+        <div class="formbox">
+            <form method="POST" action="api/account/login">
+                <p>
+                    <input type="email" placeholder="E-Mail cím" autocomplete="email" class="raisedinput" name="email" required>
+                </p>
+                <p>
+                    <input type="password" placeholder="Jelszó" autocomplete="current-password" class="raisedinput" name="password" required>
+                </p>
+                <p class="right">
+                    <a href="register" class="flatbtn">Regisztráció</a>
+                    <input type="submit" value="Bejelentkezés" class="raisedbtn">
+                </p>
+            </form>
+        </div>
+    </div>
+{/block}

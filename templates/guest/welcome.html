@@ -1,0 +1,18 @@
+{extends base.html}
+
+{block content}
+<div class="background library"></div>
+<div class="background overlay"></div>
+<div class="screencenter noselect">
+    <h1>Üdvözöllek</h1>
+    <div class="formbox">
+        <p>
+            Adatbázisunk jelenleg {htmlspecialchars $usercount} felhasználóval, és {htmlspecialchars $bookcount} könyvvel rendelkezik.
+        </p>
+        <p class="center">
+            <a href="register" class="raisedbtn">Regisztráció</a><br>
+            <a href="login" class="flatbtn">Bejelentkezés</a>
+        </p>
+    </div>
+</div>
+{/block}

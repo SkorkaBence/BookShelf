@@ -6,14 +6,13 @@ $tmp = new BookShelf\Template\Core();
 $sql = new BookShelf\Database\Sql();
 
 Session::Init();
-
-if (Session::IsLoggedIn()) {
-    IO::redirect("home");
+if (!Session::IsLoggedIn()) {
+    IO::redirect("login");
 }
+$user = Session::getUser();
 
 $data = [
-    "usercount" => $sql->execute("SELECT id FROM users")->rowCount(),
-    "bookcount" => 0
+    "user" => $user->GetUserData()
 ];
 
-echo $tmp->get("guest/welcome.html", $data);
+echo $tmp->get("user/list.html", $data);

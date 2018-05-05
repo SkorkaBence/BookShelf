@@ -1,0 +1,35 @@
+{extends base.html}
+
+{block content}
+    <div class="background library"></div>
+    <div class="background overlay"></div>
+    <div class="screencenter noselect">
+        <h1>Regisztráció</h1>
+        <div class="formbox">
+            <form method="POST" action="api/account/register">
+                {if $error != null}
+                    <p class="errorbox">
+                        {htmlspecialchars $error}
+                    </p>
+                {/if}
+                <p>
+                    <input type="text" placeholder="Teljes név" autocomplete="name" class="raisedinput" maxlength="255" name="name" required>
+                </p>
+                <p>
+                    <input type="email" placeholder="E-Mail cím" autocomplete="email" class="raisedinput" maxlength="254" name="email" required>
+                </p>
+                <p>
+                    <input type="password" placeholder="Jelszó" autocomplete="new-password" class="raisedinput" name="password" required>
+                </p>
+                <p>
+                    <input type="password" placeholder="Jelszó megismétlése" autocomplete="new-password" class="raisedinput" name="password2" required>
+                </p>
+                <div class="g-recaptcha" data-sitekey="{htmlspecialchars $captcha_key}"></div>
+                <p class="right">
+                    <a href="login" class="flatbtn">Bejelentkezés</a>
+                    <input type="submit" value="Regisztráció" class="raisedbtn">
+                </p>
+            </form>
+        </div>
+    </div>
+{/block}

@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    overscroll-behavior: contain;
+}
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+}
+.background {
+    position: fixed;
+    top: -20px;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.background.library {
+    background-image: url('../img/library.jpg');
+    filter: blur(8px);
+}
+.background.overlay {
+    background-color: rgba(0, 194, 0, 0.275);
+}
+.screencenter {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.screencenter > h1 {
+    text-transform: uppercase;
+    font-size: 45px;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+}
+.formbox {
+    padding: 20px 40px;
+    background-color: white;
+    border-radius: 15px;
+    width: 500px;
+    max-width: 100%;
+}
+p.right {
+    text-align: right;
+}
+p.center {
+    text-align: center;
+}
+.formbox form {
+    margin: 0;
+    padding: 0;
+}
+.raisedinput {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid gray;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.12);
+    border-radius: 2px;
+    outline: none;
+    transition: all 0.3s;
+}
+.raisedinput:focus {
+    border-color: rgb(16, 150, 16);;
+}
+.raisedbtn {
+    display: inline-block;
+    border-radius: 2px;
+    padding: 12px 22px;
+    border: none;
+    margin: 0 8px;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-family: inherit;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s;
+    background-color: rgb(16, 150, 16);
+    color: white;
+    text-decoration: none;
+}
+.raisedbtn:hover, .raisedbtn:focus {
+    box-shadow: 0 0 8px 0 rgba(0,0,0,0.12), 0 8px 8px 0 rgba(0,0,0,0.24);
+}
+.flatbtn {
+    display: inline-block;
+    border-radius: 2px;
+    padding: 12px 22px;
+    border: none;
+    margin: 0 8px;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-family: inherit;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s;
+    background-color: transparent;
+    color: rgb(16, 150, 16);
+    text-decoration: none;
+}
+.flatbtn:hover, .flatbtn:focus {
+    text-shadow: 0 0 8px 0 rgba(0,0,0,0.12), 0 8px 8px 0 rgba(0,0,0,0.24);
+    text-decoration: underline;
+}
+.formbox .errorbox {
+    padding: 4px 8px;
+    background-color: rgb(238, 198, 179);
+    border-radius: 4px;
+    border: 2px solid darkred;
+    text-align: center;
+}
+.g-recaptcha div {
+    margin: 0 auto;
+}

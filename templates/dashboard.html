@@ -1,0 +1,37 @@
+{extends base.html}
+
+{block extra_header}
+    <link rel="stylesheet" href="css/dashboard.css">
+{/block}
+
+{block content}
+    <div class="dashboard">
+        <div class="account noselect">
+            <div class="centeredcontent">
+                <h1>Üdvözöllek!</h1>
+                <div class="image" style="background-image: url('{htmlspecialchars $user.image}')">
+                    <div class="changeimg">
+                        <div class="centeredcontent">
+                            Profil<br>
+                            módosítása
+                        </div>
+                    </div>
+                </div>
+                <h2>{htmlspecialchars $user.name}</h2>
+                <h3>{htmlspecialchars $user.email}</h3>
+            </div>
+        </div>
+        <div class="menu noselect">
+            <button class="menubtn">Új könyv hozzáadása</button>
+            <button class="menubtn">Könyveim</button>
+        </div>
+        <div class="bottommenu noselect">
+            <a href="api/account/logout" class="menubtn">Kijelentkezés</a>
+        </div>
+        <div class="body">
+            <div class="letter">
+                {block pagecontent}Missing content{/block}
+            </div>
+        </div>
+    </div>
+{/block}

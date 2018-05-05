@@ -1,3 +1,5 @@
 .vscode
 lib/vendor
 www/js
+templates/compiled
+config.php
