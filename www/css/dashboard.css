@@ -143,4 +143,124 @@
     margin: 0;
     padding: 0;
     font-weight: normal;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+.dashboard .body .fullwidth {
+    width: 100%;
+}
+.dashboard .body .separatorline {
+    display: flex;
+    align-items: stretch;
+}
+.dashboard .body .separatorline div {
+    flex-grow: 0;
+    padding: 8px;
+}
+.dashboard .body .separatorline div.line {
+    flex-grow: 1;
+}
+.searchbook {
+    display: inline-block;
+    width: 50px;
+    height: 80px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 5px;
+    cursor: pointer;
+}
+.booklistitem {
+    display: grid;
+    width: 100%;
+    height: 60px;
+    grid-template:
+        'hasread title buttons'
+        'hasread author pagecount';
+    grid-template-columns: 40px auto 80px;
+    grid-template-rows: auto auto;
+    margin: 10px 0;
+}
+.booklistitem .title {
+    grid-area: title;
+    align-self: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+.booklistitem .author {
+    grid-area: author;
+    align-self: center;
+    font-style: italic;
+}
+.booklistitem .pagecount {
+    grid-area: pagecount;
+    align-self: center;
+    justify-self: end;
+}
+.booklistitem .buttons {
+    grid-area: buttons;
+    align-self: center;
+    justify-self: end;
+}
+.booklistitem .hasread {
+    position: relative;
+    grid-area: hasread;
+    align-self: center;
+    justify-self: center;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.booklistitem .hasread.tick::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 18px;
+    top: calc(50% - 3px);
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border: 2px solid transparent;
+    border-bottom-color: black;
+    border-right-color: black;
+}
+.booklistitem .hasread.load::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid transparent;
+    border-top-color: black;
+    border-bottom-color: black;
+    border-radius: 100%;
+
+    animation-name: spinning;
+    animation-duration: 0.3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes spinning {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+.pagenavigators {
+    display: grid;
+    grid-template: 'prev next';
+    grid-template-columns: auto auto;
+}
+.pagenavigators div:first-child {
+    grid-area: prev;
+    justify-self: start;
+}
+.pagenavigators div:last-child {
+    grid-area: next;
+    justify-self: end;
 }

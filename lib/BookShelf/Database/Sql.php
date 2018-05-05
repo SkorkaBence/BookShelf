@@ -33,4 +33,8 @@ class Sql {
         return $stmt;
     }
 
+    public function prepare(string $query) : PDOStatement {
+        return self::$connection->prepare($query);
+    }
+
 }

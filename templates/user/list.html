@@ -1,5 +1,22 @@
 {extends dashboard.html}
 
+{block onload}
+    BookList.Init({htmlspecialchars $page});
+{/block}
+
 {block pagecontent}
     <h1>Könyv listám</h1>
+    <p>
+        <label for="search_input">Keresés a könyveim között</label><br>
+        <input type="text" placeholder="Cím / Szerző" id="search_input" class="raisedinput" value="{htmlspecialchars $query}" required>
+    </p>
+    <div class="fullwidth" id="booktable"></div>
+    <div class="pagenavigators">
+        <div id="prevpage" style="display: none;">
+            <button class="flatbtn">Előző oldal</button>
+        </div>
+        <div id="nextpage" style="display: none;">
+            <button class="flatbtn">Következő oldal</button>
+        </div>
+    </div>
 {/block}y

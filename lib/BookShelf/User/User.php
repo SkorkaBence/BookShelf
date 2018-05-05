@@ -59,4 +59,8 @@ class User {
         ];
     }
 
+    public function GetBookList() : array {
+        
+    }
+
 }

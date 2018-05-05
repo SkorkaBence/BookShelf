@@ -12,9 +12,7 @@ if (!Session::IsLoggedIn()) {
 $user = Session::getUser();
 
 $data = [
-    "user" => $user->GetUserData(),
-    "page" => isset($_GET["page"]) ? intval($_GET["page"]) : 1,
-    "query" => isset($_GET["q"]) ? $_GET["q"] : ""
+    "user" => $user->GetUserData()
 ];
 
-echo $tmp->get("user/list.html", $data);
+echo $tmp->get("user/addbook.html", $data);

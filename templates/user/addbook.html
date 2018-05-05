@@ -1,0 +1,60 @@
+{extends dashboard.html}
+
+{block onload}
+    BookAdder.Init();
+{/block}
+
+{block pagecontent}
+    <h1>Új könyv hozzáadása</h1>
+    <p>
+        <label for="search_input">Könyv keresése</label><br>
+        <input type="text" placeholder="Cím / Szerző" id="search_input" class="raisedinput" required>
+    </p>
+    <div id="searchresults">
+
+    </div>
+    <div class="separatorline">
+        <div class="line">
+            <hr>
+        </div>
+        <div>VAGY</div>
+        <div class="line">
+            <hr>
+        </div>
+    </div>
+    <form method="POST" action="api/books/add">
+        <p>
+            <input type="text" placeholder="Szerző" name="author" class="raisedinput" id="author" required>
+        </p>
+        <p>
+            <input type="text" placeholder="Cím" name="title" class="raisedinput" id="title" required>
+        </p>
+        <p>
+            <input type="number" placeholder="Oldalszám" name="pages" min="0" class="raisedinput" id="pages">
+        </p>
+        <p>
+            <input type="text" placeholder="Kategória" name="category" class="raisedinput" list="category_list" id="category">
+            <datalist id="category_list">
+                <option>Tragédia</option>
+                <option>Komédia</option>
+                <option>Fantasy</option>
+                <option>Mitológia</option>
+                <option>Kaland</option>
+                <option>Rejtély</option>
+            </datalist>
+        </p>
+        <p>
+            <input type="number" placeholder="ISBN szám" name="isbn" class="raisedinput" id="isbn">
+        </p>
+        <p>
+            <label>
+                    <input type="checkbox" name="hasread" value="true" id="hasread">
+                    Elolvasva?
+            </label>
+        </p>
+        <p class="right">
+            <input type="reset" value="Törlés" class="flatbtn">
+            <input type="submit" value="Hozzáadás" class="raisedbtn">
+        </p>
+    </form>
+{/block}y

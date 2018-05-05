@@ -12,6 +12,19 @@
         <script src="js/bookshelf.js"></script>
 
         {block extra_header}{/block}
+
+        <script type="application/javascript">
+            window.addEventListener("load", function() {
+                try {
+                    {block onload}
+                        console.log("There is no onload function for this page");
+                    {/block}
+                } catch (e) {
+                    console.warn(e);
+                    alert("Page onload failed: " + e.message);
+                }
+            });
+        </script>
     </head>
     <body>
         {block content}
