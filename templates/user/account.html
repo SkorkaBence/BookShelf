@@ -1,0 +1,78 @@
+{extends dashboard.html}
+
+{block onload}
+    AccountManager.Init();
+{/block}
+
+{block pagecontent}
+    <h1>Fiók beállításai</h1>
+    <div class="separatorline">
+        <div class="line">
+            <hr>
+        </div>
+        <div>Kép feltöltése</div>
+        <div class="line">
+            <hr>
+        </div>
+    </div>
+    <form method="PATCH" action="" enctype="multipart/form-data">
+        <p>
+            <input type="file" class="raisedinput" id="new_image" required>
+        </p>
+        <p class="right">
+            <input type="submit" value="Feltöltés" class="raisedbtn">
+        </p>
+    </form>
+    <div class="separatorline">
+        <div class="line">
+            <hr>
+        </div>
+        <div>Adataim módosítása</div>
+        <div class="line">
+            <hr>
+        </div>
+    </div>
+    <form  method="POST" action="api/account/edit" id="account_settings_form">
+        <input type="hidden" name="_method" value="PATCH">
+        <p>
+            <label for="name">Név</label><br>
+            <input type="text" placeholder="Név" name="name" class="raisedinput" id="name" value="{htmlspecialchars $user.name}" required>
+        </p>
+        <p>
+            <label for="email">E-mail</label><br>
+            <input type="email" placeholder="E-mail" name="email" class="raisedinput" id="email" value="{htmlspecialchars $user.email}" required>
+        </p>
+        <p id="account_loading"></p>
+        <p class="right">
+            <input type="submit" value="Mentés" class="raisedbtn">
+        </p>
+    </form>
+    <div class="separatorline">
+        <div class="line">
+            <hr>
+        </div>
+        <div>Jelszó modosítása</div>
+        <div class="line">
+            <hr>
+        </div>
+    </div>
+    <form method="POST" action="api/account/edit" id="account_password_form">
+        <input type="hidden" name="_method" value="PATCH">
+        <p>
+            <label for="current_password">Jelenlegi jelszó</label><br>
+            <input type="password" placeholder="Jelenlegi jelszó" name="current_password" class="raisedinput" id="current_password" value="" autocomplete="current-password" required>
+        </p>
+        <p>
+            <label for="new_password1">Új jelszó</label><br>
+            <input type="password" placeholder="Új jelszó" name="new_password1" class="raisedinput" id="new_password1" value=""  autocomplete="new-password" required>
+        </p>
+        <p>
+            <label for="new_password2">Új jelszó megismétlése</label><br>
+            <input type="password" placeholder="Új jelszó megismétlése" name="new_password2" class="raisedinput" id="new_password2" value=""  autocomplete="new-password" required>
+        </p>
+        <p id="password_loading"></p>
+        <p class="right">
+            <input type="submit" value="Mentés" class="raisedbtn">
+        </p>
+    </form>
+{/block}

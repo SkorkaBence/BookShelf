@@ -88,6 +88,10 @@ class IO {
     }
 
     public static function getMethod() {
+        $data = self::getFullData();
+        if (isset($data["_method"])) {
+            return strtoupper($data["_method"]);
+        }
         return $_SERVER['REQUEST_METHOD'];
     }
 

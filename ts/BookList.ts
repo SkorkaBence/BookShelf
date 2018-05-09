@@ -122,9 +122,10 @@ class BookList {
                 const buttons = document.createElement("span");
                 buttons.className = 'buttons';
 
-                const editbtn = document.createElement("button");
+                const editbtn = document.createElement("a");
                 editbtn.className = 'iconbtn material-icons';
                 editbtn.innerText = 'mode_edit';
+                editbtn.href = "edit?id=" + encodeURIComponent(book.id);
                 buttons.appendChild(editbtn);
 
                 const deletebtn = document.createElement("button");

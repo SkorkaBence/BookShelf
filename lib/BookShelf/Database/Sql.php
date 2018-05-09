@@ -17,7 +17,9 @@ class Sql {
         }
 
         if (self::$connection === null) {
-            self::$connection = new PDO("mysql:dbname=" . $_CONFIG["mysql"]["database"] . ";host=" . $_CONFIG["mysql"]["host"] . ";charset=utf8", $_CONFIG["mysql"]["username"], $_CONFIG["mysql"]["password"]);
+            self::$connection = new PDO("mysql:dbname=" . $_CONFIG["mysql"]["database"] . ";host=" . $_CONFIG["mysql"]["host"] . ";charset=utf8", $_CONFIG["mysql"]["username"], $_CONFIG["mysql"]["password"], [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+            ]);
         }
     }
 

@@ -7,6 +7,7 @@ $tmp = new BookShelf\Template\Core();
 Session::Init();
 if (Session::IsLoggedIn()) {
     IO::redirect("home");
+    exit;
 }
 
 $data = [];

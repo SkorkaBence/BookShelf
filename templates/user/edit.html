@@ -1,0 +1,43 @@
+{extends dashboard.html}
+
+{block onload}
+    BookManager.Init("{htmlspecialchars $book.id}");
+{/block}
+
+{block pagecontent}
+    <h1>Könyv módosítása</h1>
+    <form method="POST" action="api/books/edit?id={htmlspecialchars $book.id}" id="book_edit_form">
+        <input type="hidden" name="_method" value="PATCH">
+        <p>
+            <input type="text" placeholder="Szerző" name="author" class="raisedinput" id="author" value="{htmlspecialchars $book.author}" required>
+        </p>
+        <p>
+            <input type="text" placeholder="Cím" name="title" class="raisedinput" id="title" value="{htmlspecialchars $book.title}" required>
+        </p>
+        <p>
+            <input type="number" placeholder="Oldalszám" name="pages" min="0" class="raisedinput" value="{htmlspecialchars $book.pages}" id="pages">
+        </p>
+        <p>
+            <input type="text" placeholder="Kategória" name="category" class="raisedinput" list="category_list" value="{htmlspecialchars $book.category}" id="category">
+            {include objects/bookcategories.html}
+        </p>
+        <p>
+            <input type="number" placeholder="ISBN szám" name="isbn" class="raisedinput" value="{htmlspecialchars $book.isbn}" id="isbn">
+        </p>
+        <p>
+            <label>
+                    <input type="checkbox" name="hasread" value="true" id="hasread"
+                        {if $book.hasread}
+                            checked
+                        {else}
+                        {/if}
+                    >
+                    Elolvasva?
+            </label>
+        </p>
+        <p id="bookedit_loading"></p>
+        <p class="right">
+            <input type="submit" value="Mentés" class="raisedbtn">
+        </p>
+    </form>
+{/block}y

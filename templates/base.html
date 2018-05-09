@@ -9,6 +9,8 @@
         <script src='https://www.google.com/recaptcha/api.js'></script>
 
         <link rel="stylesheet" href="css/page.css">
+        <link rel="stylesheet" href="css/page_smallscreen.css" media="screen and (max-width: 600px), screen and (max-height: 600px)">
+
         <script src="js/bookshelf.js"></script>
 
         {block extra_header}{/block}
@@ -16,7 +18,7 @@
         <script type="application/javascript">
             window.addEventListener("load", function() {
                 try {
-                    {block onload}
+                    {block base_onload}
                         console.log("There is no onload function for this page");
                     {/block}
                 } catch (e) {

@@ -30,7 +30,7 @@ class UserManager {
         }
         
         if (strlen($user_data["password"]) < 6) {
-            throw new DisplayableException("A jelszónak legaább 6 karakternek kell lennie");
+            throw new DisplayableException("A jelszónak legalább 6 karakternek kell lennie");
         }
 
         $accounts = $this->db->select("SELECT * FROM users WHERE email=:email", [

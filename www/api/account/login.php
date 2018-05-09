@@ -19,7 +19,7 @@ try {
     Session::LogIn($user);
     IO::redirect("../../");
 } catch (DisplayableException $e) {
-    IO::redirect("../../register?" . http_build_query([
+    IO::redirect("../../login?" . http_build_query([
         "error" => $e->getMessage()
     ]));
 }

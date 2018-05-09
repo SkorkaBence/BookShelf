@@ -2,31 +2,44 @@
 
 {block extra_header}
     <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/dashboard_smallscreen.css" media="screen and (max-width: 600px), screen and (max-height: 600px)">
+{/block}
+
+{block base_onload}
+    GestureManager.RegisterEvent(Gesture.MenuOpen, function() {
+        MenuManager.OpenMenu();
+    });
+    GestureManager.RegisterEvent(Gesture.MenuClose, function() {
+        MenuManager.CloseMenu();
+    });
+    {block onload}{/block}
 {/block}
 
 {block content}
     <div class="dashboard">
-        <div class="account noselect">
-            <div class="centeredcontent">
-                <h1>Üdvözöllek!</h1>
-                <div class="image" style="background-image: url('{htmlspecialchars $user.image}')">
-                    <div class="changeimg">
-                        <div class="centeredcontent">
-                            Profil<br>
-                            módosítása
+        <div class="sidepanel">
+            <div class="account noselect">
+                    <div class="centeredcontent">
+                        <h1>Üdvözöllek!</h1>
+                        <div class="image" style="background-image: url('{htmlspecialchars $user.image}')">
+                            <a class="changeimg" href="account">
+                                <div class="centeredcontent">
+                                    Profil<br>
+                                    módosítása
+                                </div>
+                            </a>
                         </div>
+                        <h2>{htmlspecialchars $user.name}</h2>
+                        <h3>{htmlspecialchars $user.email}</h3>
                     </div>
                 </div>
-                <h2>{htmlspecialchars $user.name}</h2>
-                <h3>{htmlspecialchars $user.email}</h3>
-            </div>
-        </div>
-        <div class="menu noselect">
-            <a href="addbook" class="menubtn">Új könyv hozzáadása</a>
-            <a href="home" class="menubtn">Könyveim</a>
-        </div>
-        <div class="bottommenu noselect">
-            <a href="api/account/logout" class="menubtn">Kijelentkezés</a>
+                <div class="menu noselect">
+                    <a href="addbook" class="menubtn">Új könyv hozzáadása</a>
+                    <a href="home" class="menubtn">Könyveim</a>
+                </div>
+                <div class="bottommenu noselect">
+                    <a href="api/account/logout" class="menubtn">Kijelentkezés</a>
+                </div>
         </div>
         <div class="body">
             <div class="letter">

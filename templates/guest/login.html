@@ -7,6 +7,11 @@
         <h1>Bejelentkezés</h1>
         <div class="formbox">
             <form method="POST" action="api/account/login">
+                {if $error != null}
+                    <p class="errorbox">
+                        {htmlspecialchars $error}
+                    </p>
+                {/if}
                 <p>
                     <input type="email" placeholder="E-Mail cím" autocomplete="email" class="raisedinput" name="email" required>
                 </p>

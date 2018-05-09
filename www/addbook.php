@@ -8,6 +8,7 @@ $sql = new BookShelf\Database\Sql();
 Session::Init();
 if (!Session::IsLoggedIn()) {
     IO::redirect("login");
+    exit;
 }
 $user = Session::getUser();
 

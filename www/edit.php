@@ -2,6 +2,7 @@
 require_once(__DIR__ . "/../lib/autoload.php");
 use BookShelf\User\Session;
 use BookShelf\Api\IO;
+use BookShelf\Books\BookRequester;
 $tmp = new BookShelf\Template\Core();
 $sql = new BookShelf\Database\Sql();
 
@@ -12,10 +13,22 @@ if (!Session::IsLoggedIn()) {
 }
 $user = Session::getUser();
 
+if (!isset($_GET["id"])) {
+    IO::redirect("home");
+    exit;
+}
+
+$book;
+try {
+    $book = BookRequester::GetBook($user->getId(), $_GET["id"]);
+} catch (Exception $e) {
+    IO::redirect("home");
+    exit;
+}
+
 $data = [
     "user" => $user->GetUserData(),
-    "page" => isset($_GET["page"]) ? intval($_GET["page"]) : 1,
-    "query" => isset($_GET["q"]) ? $_GET["q"] : ""
+    "book" => $book->GetBookData()
 ];
 
-echo $tmp->get("user/list.html", $data);
+echo $tmp->get("user/edit.html", $data);

@@ -34,14 +34,7 @@
         </p>
         <p>
             <input type="text" placeholder="Kategória" name="category" class="raisedinput" list="category_list" id="category">
-            <datalist id="category_list">
-                <option>Tragédia</option>
-                <option>Komédia</option>
-                <option>Fantasy</option>
-                <option>Mitológia</option>
-                <option>Kaland</option>
-                <option>Rejtély</option>
-            </datalist>
+            {include objects/bookcategories.html}
         </p>
         <p>
             <input type="number" placeholder="ISBN szám" name="isbn" class="raisedinput" id="isbn">

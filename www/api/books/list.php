@@ -15,12 +15,15 @@ if (!Session::IsLoggedIn()) {
 }
 $user = Session::getUser();
 
+$time = -microtime(true);
 $books = BookRequester::GetPage($user->getId(), $page, $query);
+$time += microtime(true);
 
 $data = [
     "items" => BookRequester::BooksToJsonData($books["books"]),
     "has_next_page" => $books["has_next_page"],
     "has_previous_page" => $books["has_previous_page"],
-    "page_count" => $books["page_count"]
+    "page_count" => $books["page_count"],   
+    "query_time" => $time
 ];
 IO::print($data);
