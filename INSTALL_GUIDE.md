@@ -30,7 +30,7 @@ A könyvespolc telepítése rendkívül egyszerű, ez az útmutató segít az ö
     * `local`: fileok tárolása helyi tárhelyen
     * `azure`: fileok feltöltése azure blob storage rendszerbe
 ```php
-"uploaded_files" => "local",
+"uploaded_files" => "local"
 ```
 6. (opcionális) Ha a profilképeket azureban szeretnénk tárolni, helyi hárhely helyett, akkor a configban kitölthetőek az azure adatok. Ez nem körelező!
 ```php
