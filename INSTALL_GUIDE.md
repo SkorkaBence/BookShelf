@@ -6,7 +6,7 @@ A könyvespolc telepítése rendkívül egyszerű, ez az útmutató segít az ö
 ![alt text][ikea_img]
 
 ## Config kitöltése
-1. Le kell másolni a ```config_template.php``` filet ```config.php``` néven.
+1. Le kell másolni a `config_template.php` filet `config.php` néven.
 2. SQL kitöltése
 ```php
     "mysql" => [
@@ -17,8 +17,8 @@ A könyvespolc telepítése rendkívül egyszerű, ez az útmutató segít az ö
     ]
 ```
 3. reCapctha
-    * Be kell jelentkezni a ```https://www.google.com/recaptcha/admin``` oldalra
-    * Létre kell hozni egy új ```reCAPTCHA v2``` típusú captcha kódot
+    * Be kell jelentkezni a `https://www.google.com/recaptcha/admin` oldalra
+    * Létre kell hozni egy új `reCAPTCHA v2` típusú captcha kódot
     * A kulcsok közül a site key és a secret key is szükséges.
 
 ## Adatbázis létehozása
@@ -29,7 +29,7 @@ php jobs/init_db.php
 ```
 
 ## Jogosultságok beállítása
-A template fileok comoileolásához szükséges egy írható ```templates/compiled``` mappa.
+A template fileok comoileolásához szükséges egy írható `templates/compiled` mappa.
 Ennek a mappának a létrehozásához, és a megfelelő jogosultságok beállításához meg kell hívni a következő parancsot:
 ```bash
 php jobs/init_templates.php
@@ -41,4 +41,4 @@ Ezzez a fordítási config elő van készítve, csak meg kell hívni a következ
 ```bash
 tsc -p tsconfig.json
 ```
-Ha ez nincs feltelepítve, akkor a ```node package manager``` (fúj) segítségével feltelepíthető
+Ha ez nincs feltelepítve, akkor a `node package manager` (fúj) segítségével feltelepíthető
