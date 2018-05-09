@@ -14,6 +14,9 @@ $_CONFIG = [
     "google" => [
         "server_key" => ""            // Google API server key
     ],
+    "uploaded_files" => "local",      // Where to store uploaded file:
+                                      //     "local" - upload them, and store them in local storage
+                                      //     "azure" - upload them into the azure cloud
     "azure" => [
         "storage" => [
             "container_name" => "",   // Microsoft Azure blob container name
