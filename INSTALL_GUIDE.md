@@ -5,6 +5,10 @@ A könyvespolc telepítése rendkívül egyszerű, ez az útmutató segít az ö
 
 ![alt text][ikea_img]
 
+## Virtuális szerver gyökérkönyvtár
+
+A webszerveren a virtuális szervert nem a forráskód mappájára, hanem a `www` mappára kell irányítani. A többi mappa, így többek között a `lib` könyvrás is rejtve marad a könyespolcot böngésző felhasználók elől.
+
 ## Config kitöltése
 1. Le kell másolni a `config_template.php` filet `config.php` néven.
 2. SQL kitöltése
@@ -63,3 +67,15 @@ Ezzez a fordítási config elő van készítve, csak meg kell hívni a következ
 tsc -p tsconfig.json
 ```
 Ha ez nincs feltelepítve, akkor a `node package manager` (fúj) segítségével feltelepíthető
+
+## .htaccess
+Az oldal működéséhez nagyon fontos, hogy a webszerveren engedélyezve legyen a `.hraccess` fileok használata.
+
+Apache szerver esetén ehhez engedélyezni kell a mappában az overrideolást a `AllowOverride All` opcióval:
+```apache
+<Directory /path/to/konyvespolc>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+</Directory>
+```
