@@ -30,43 +30,38 @@ A webszerveren a virtuális szervert nem a forráskód mappájára, hanem a `www
     "secret" => "my_private_key"
 ]
 ```
-4. Ki kell választani a feltöltött fileok tárolási helyét
-    * `local`: fileok tárolása helyi tárhelyen
-    * `azure`: fileok feltöltése azure blob storage rendszerbe
-```php
-"uploaded_files" => "local"
-```
-6. (opcionális) Ha a profilképeket azureban szeretnénk tárolni, helyi hárhely helyett, akkor a configban kitölthetőek az azure adatok. Ez nem körelező!
-```php
-"azure" => [
-    "storage" => [
-        "container_name" => "bookshelf",
-        "connection_string" => "my_connection_string"
-    ]
-]
-```
 
 ## Adatbázis létehozása
 Miután a config file ki lett töltve, a rendszer automatikusan létrehozza a szükséges táblákat, csak meg kell hívni a létrehozó php-t.
 Ehhez a gyökérkönyvrából (ahol ez a guide is található) le kell futtatni a következő parancsot:
-```bash
-php jobs/init_db.php
+```shell
+$ php jobs/init_db.php
 ```
 
 ## Jogosultságok beállítása
 A template fileok comoileolásához szükséges egy írható `templates/compiled` mappa.
 Ennek a mappának a létrehozásához, és a megfelelő jogosultságok beállításához meg kell hívni a következő parancsot:
-```bash
-php jobs/init_templates.php
+```shell
+$ php jobs/init_templates.php
 ```
 
 ## TypeScript fordítása
 Az oldal működéséhez a TypeScript fileokat le kell fordítani javascript fileokra.
 Ezzez a fordítási config elő van készítve, csak meg kell hívni a következő parancsot:
-```bash
-tsc -p tsconfig.json
+```shell
+$ tsc -p tsconfig.json
 ```
-Ha ez nincs feltelepítve, akkor a `node package manager` (fúj) segítségével feltelepíthető
+Ha ez nincs feltelepítve, akkor a `node package manager` segítségével feltelepíthető
+
+## Composer
+Az oldal használ könyvtárakat, ezeket le kell töleni.
+```shell
+$ cd lib
+$ composer update
+```
+Használt könyvtárak teljes listája:
+* `ramsey/uuid`: UUID generáló
+* `dwoo/dwoo`: Template rendszer
 
 ## .htaccess
 Az oldal működéséhez nagyon fontos, hogy a webszerveren engedélyezve legyen a `.hraccess` fileok használata.
