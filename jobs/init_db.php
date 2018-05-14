@@ -48,7 +48,9 @@ echo "Setting primary key and indexes for table: books" . PHP_EOL;
 $sql->execute(
     "ALTER TABLE `books`
     ADD PRIMARY KEY (`id`),
-    ADD KEY `owner` (`owner`);"
+    ADD KEY `owner` (`owner`),
+    ADD KEY `author` (`author`),
+    ADD KEY `title` (`title`);"
 );
 
 echo "Done." . PHP_EOL;
