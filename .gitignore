@@ -1,5 +1,6 @@
 .vscode
 lib/vendor
+lib/composer.lock
 www/js
 templates/compiled
 config.php
