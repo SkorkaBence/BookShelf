@@ -4,3 +4,4 @@ lib/composer.lock
 www/js
 templates/compiled
 config.php
+config.json
