@@ -31,6 +31,16 @@ A webszerveren a virtuális szervert nem a forráskód mappájára, hanem a `www
 ]
 ```
 
+## Composer
+Az oldal használ könyvtárakat, ezeket le kell töleni.
+```shell
+$ cd lib
+$ composer update
+```
+Használt könyvtárak teljes listája:
+* `ramsey/uuid`: UUID generáló
+* `dwoo/dwoo`: Template rendszer
+
 ## Adatbázis létehozása
 Miután a config file ki lett töltve, a rendszer automatikusan létrehozza a szükséges táblákat, csak meg kell hívni a létrehozó php-t.
 Ehhez a gyökérkönyvrából (ahol ez a guide is található) le kell futtatni a következő parancsot:
@@ -52,16 +62,6 @@ Ezzez a fordítási config elő van készítve, csak meg kell hívni a következ
 $ tsc -p tsconfig.json
 ```
 Ha ez nincs feltelepítve, akkor a `node package manager` segítségével feltelepíthető
-
-## Composer
-Az oldal használ könyvtárakat, ezeket le kell töleni.
-```shell
-$ cd lib
-$ composer update
-```
-Használt könyvtárak teljes listája:
-* `ramsey/uuid`: UUID generáló
-* `dwoo/dwoo`: Template rendszer
 
 ## .htaccess
 Az oldal működéséhez nagyon fontos, hogy a webszerveren engedélyezve legyen a `.hraccess` fileok használata.

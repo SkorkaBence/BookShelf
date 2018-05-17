@@ -16,7 +16,7 @@ if (!file_exists(__DIR__ . "/../config.php")) {
     echo "Password: ";
     $pw = readline();
     echo "reCAPTCHA:" . PHP_EOL;
-    echo "Size key: ";
+    echo "Site key: ";
     $sik = readline();
     echo "Secret key: ";
     $sek = readline();
@@ -38,6 +38,11 @@ if (!file_exists(__DIR__ . "/../config.php")) {
     echo "Config file exists." . PHP_EOL;
 }
 
+// Composer   -----------------------------------------------------------------
+
+echo "Updating composer..." . PHP_EOL;
+shell_exec("cd " . escapeshellarg(__DIR__ . "/../lib/") . " && composer update");
+
 // SQL  -----------------------------------------------------------------
 
 echo "Running SQL script..." . PHP_EOL;
@@ -52,10 +57,5 @@ shell_exec("cd " . escapeshellarg(__DIR__ . "/") . " && php init_templates.php")
 
 echo "Compiling typescirpt..." . PHP_EOL;
 shell_exec("cd " . escapeshellarg(__DIR__ . "/../") . " && tsc -p tsconfig.json");
-
-// Composer   -----------------------------------------------------------------
-
-echo "Updating composer..." . PHP_EOL;
-shell_exec("cd " . escapeshellarg(__DIR__ . "/../lib/") . " && composer update");
 
 echo "Done." . PHP_EOL;
