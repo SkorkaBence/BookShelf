@@ -46,7 +46,9 @@ class Session {
         try {
             $user = new User(self::get("user_id"));
         } catch (Exception $e) {
-            $this->LogOut();
+            self::LogOut();
+            echo "Egy belső hiba történt, kérlek frissítsd ezt az oldalt.";
+            exit;
         }
         return $user;
     }
