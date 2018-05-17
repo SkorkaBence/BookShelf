@@ -15,6 +15,7 @@ A teljes automata telepítéshez a következő parancsot elég meghívni:
 ```bash
 php jobs/insta..php
 ```
+FONTOS!! Az automata telepítő nem tudja módosítani az apache configokat, így az utolsó lépést manuálisan kell elvégezni.
 Ha az egyik lépés során hiba történik, akkor az alábbi lépéseket követve maunálisan is feltelepíthető a könyvespolc:
 
 ## Config kitöltése
