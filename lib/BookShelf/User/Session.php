@@ -43,7 +43,12 @@ class Session {
         if (!self::IsLoggedIn()) {
             throw new Exception("Not logged in");
         }
-        return new User(self::get("user_id"));
+        try {
+            $user = new User(self::get("user_id"));
+        } catch (Exception $e) {
+            $this->LogOut();
+        }
+        return $user;
     }
 
 }
