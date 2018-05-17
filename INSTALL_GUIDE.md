@@ -29,7 +29,7 @@ Ha az egyik lépés során hiba történik, akkor az alábbi lépéseket követv
     "database" => "example_db"
 ]
 ```
-3. reCapctha
+3. reCAPTCHA
     * Be kell jelentkezni a `https://www.google.com/recaptcha/admin` oldalra
     * Létre kell hozni egy új `reCAPTCHA v2` típusú captcha kódot
     * A kulcsok közül a site key és a secret key is szükséges.
