@@ -13,6 +13,7 @@ class DirectoryCreator {
                 echo "Directory does not exists." . PHP_EOL;
                 echo "Creating directory..." . PHP_EOL;
                 if (mkdir($dir, 0777, true)) {
+                    chmod($dir, 0777);
                     echo "Directory created." . PHP_EOL;
                     $ok = true;
                 } else {
