@@ -2,6 +2,7 @@
 lib/vendor
 lib/composer.lock
 www/js
+www/img/profile
 templates/compiled
 config.php
 config.json

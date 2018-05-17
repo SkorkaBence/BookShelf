@@ -46,7 +46,7 @@ class IO {
         }
         $content_type = $_SERVER["CONTENT_TYPE"];
 
-        if ($content_type == "application/x-www-form-urlencoded") {
+        if ($content_type == "application/x-www-form-urlencoded" || strpos($content_type, "multipart/form-data") !== false) {
             $data = $_POST;
         } else if ($content_type == "application/json") {
             $data = json_decode(file_get_contents('php://input'), true);

@@ -32,6 +32,9 @@ try {
         }
         $user->changePassword($data["new_password1"], $data["new_password2"]);
     }
+    if (isset($_FILES["image"])) {
+        $user->changeImage($_FILES["image"]);
+    }
     $user->commitChanges();
 } catch (DisplayableException $e) {
     IO::error($e->getMessage());

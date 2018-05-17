@@ -9,6 +9,14 @@ A könyvespolc telepítése rendkívül egyszerű, ez az útmutató segít az ö
 
 A webszerveren a virtuális szervert nem a forráskód mappájára, hanem a `www` mappára kell irányítani. A többi mappa, így többek között a `lib` könyvrás is rejtve marad a könyespolcot böngésző felhasználók elől.
 
+## Autoinstall
+
+A teljes automata telepítéshez a következő parancsot elég meghívni:
+```bash
+php jobs/insta..php
+```
+Ha az egyik lépés során hiba történik, akkor az alábbi lépéseket követve maunálisan is feltelepíthető a könyvespolc:
+
 ## Config kitöltése
 1. Le kell másolni a `config_template.php` filet `config.php` néven.
 2. SQL kitöltése
@@ -50,9 +58,10 @@ $ php jobs/init_db.php
 
 ## Jogosultságok beállítása
 A template fileok comoileolásához szükséges egy írható `templates/compiled` mappa.
-Ennek a mappának a létrehozásához, és a megfelelő jogosultságok beállításához meg kell hívni a következő parancsot:
+A profilképek feltöltéséhez szükséges egy írható `www/image/profile` mappa.
+A mappűk a létrehozásához, és a megfelelő jogosultságok beállításához meg kell hívni a következő parancsot:
 ```shell
-$ php jobs/init_templates.php
+$ php jobs/init_directories.php
 ```
 
 ## TypeScript fordítása

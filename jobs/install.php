@@ -50,8 +50,8 @@ shell_exec("cd " . escapeshellarg(__DIR__ . "/") . " && php init_db.php");
 
 // Templates   -----------------------------------------------------------------
 
-echo "Running template script..." . PHP_EOL;
-shell_exec("cd " . escapeshellarg(__DIR__ . "/") . " && php init_templates.php");
+echo "Running directory creator script..." . PHP_EOL;
+shell_exec("cd " . escapeshellarg(__DIR__ . "/") . " && php init_directories.php");
 
 // TypeScript   -----------------------------------------------------------------
 

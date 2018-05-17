@@ -4,6 +4,7 @@ namespace BookShelf\User;
 
 use BookShelf\Database\Sql;
 use BookShelf\Exceptions\DisplayableException;
+use BookShelf\FileManager\ProfilePictureUploader;
 use Exception;
 
 class User {
@@ -78,6 +79,12 @@ class User {
             throw new DisplayableException("Az e-mail cím helytelen");
         }
         $this->data["email"] = $mail;
+    }
+
+    public function changeImage(array $img) {
+        $uploader = new ProfilePictureUploader();
+        $url = $uploader->UploadFile($img);
+        $this->data["image"] = $url;
     }
 
     public function commitChanges() {
